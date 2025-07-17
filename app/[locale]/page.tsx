@@ -9,7 +9,7 @@ import Options from "@/components/HomeComponents/Options";
 export default function Home() {
   return (
     <>
-      <Hero />
+      <Hero />  
       <About />
       <Info />
       <Features />

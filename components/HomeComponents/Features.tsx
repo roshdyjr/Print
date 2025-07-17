@@ -3,48 +3,57 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
+import { Swiper as SwiperType } from 'swiper/types'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
-import { useTranslation } from '@/hooks/useTranslation'
+import { useTranslations } from 'next-intl'
+
+type Feature = {
+    id: number
+    title: string
+    description: string
+    icon: string
+    image: string
+}
 
 const Features = () => {
-    const [activeIndex, setActiveIndex] = useState(0)
-    const [swiperInstance, setSwiperInstance] = useState<any>(null)
-    const { t } = useTranslation()
+    const [activeIndex, setActiveIndex] = useState<number>(0)
+    const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null)
+    const t = useTranslations("Features")
 
-    const features = [
+    const features: Feature[] = [
         {
             id: 1,
-            title: t('Features.feature1_title'),
-            description: t('Features.feature1_desc'),
+            title: t("feature1_title"),
+            description: t("feature1_desc"),
             icon: "/file-upload.svg",
             image: "/feature1.svg"
         },
         {
             id: 2,
-            title: t('Features.feature2_title'),
-            description: t('Features.feature2_desc'),
+            title: t("feature2_title"),
+            description: t("feature2_desc"),
             icon: "/settings.svg",
             image: "/feature2.svg"
         },
         {
             id: 3,
-            title: t('Features.feature3_title'),
-            description: t('Features.feature3_desc'),
+            title: t('feature3_title'),
+            description: t('feature3_desc'),
             icon: "/store.svg",
             image: "/feature3.svg"
         },
         {
             id: 4,
-            title: t('Features.feature4_title'),
-            description: t('Features.feature4_desc'),
+            title: t('feature4_title'),
+            description: t('feature4_desc'),
             icon: "/package.svg",
             image: "/feature4.svg"
         }
     ]
 
-    const handleSlideChange = (swiper: any) => {
+    const handleSlideChange = (swiper: SwiperType) => {
         setActiveIndex(swiper.activeIndex)
     }
 
@@ -52,8 +61,8 @@ const Features = () => {
     const isEnd = activeIndex === features.length - 1
 
     return (
-        <section className='general-container py-8 gap-[10px] w-full flex flex-col items-center justify-center lg:gap-[45px] lg:py-10 xlg:!py-20 overflow-x-hidden'>
-            <h6 className='text-[#7745A2] uppercase font-semibold text-sm'>{t('Features.section')}</h6>
+        <section id='features' className='general-container py-8 gap-[10px] w-full flex flex-col items-center justify-center lg:gap-[45px] lg:py-10 xlg:!py-20 overflow-x-hidden'>
+            <h6 className='text-[#7745A2] uppercase font-semibold text-sm'>{t('section')}</h6>
             <div className='flex flex-col items-center gap-4 w-full lg:gap-20 xl:gap-[186px] lg:flex-row lg:justify-center'>
                 {/* Mobile/Tablet Swiper */}
                 <div className='w-full lg:hidden order-2'>
@@ -126,7 +135,7 @@ const Features = () => {
                                     ? 'bg-[#7745A2] scale-125'
                                     : 'border-[0.8px] border-[#A3A3A3] hover:bg-[#7745A220]'
                                     }`}
-                                aria-label={`${t('Features.feature')} ${index + 1}`}
+                                aria-label={`"feature" ${index + 1}`}
                             />
                         ))}
                     </div>
@@ -161,7 +170,7 @@ const Features = () => {
                                     ? 'bg-[#7745A2] scale-125'
                                     : 'border-[0.8px] border-[#A3A3A3] hover:bg-[#7745A220]'
                                     }`}
-                                aria-label={`${t('Features.feature')} ${index + 1}`}
+                                aria-label={`"feature" ${index + 1}`}
                             />
                         ))}
                     </div>

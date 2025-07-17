@@ -1,34 +1,11 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./i18n/routing";
 
-const PUBLIC_FILE = /\.(.*)$/
-
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl
-  const shouldHandleLocale =
-    !PUBLIC_FILE.test(pathname) &&
-    !pathname.includes('/api/') &&
-    pathname !== '/favicon.ico' &&
-    pathname !== '/manifest.json'
-
-  if (!shouldHandleLocale) return
-
-  // Check if there is any supported locale in the pathname
-  const pathnameIsMissingLocale = ['en', 'ar'].every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
-  )
-
-  // Redirect if there is no locale
-  if (pathnameIsMissingLocale) {
-    const locale = request.cookies.get('NEXT_LOCALE')?.value || 'en'
-    return NextResponse.redirect(
-      new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url)
-    )
-  }
-}
+export default createMiddleware(routing);
 
 export const config = {
-  matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|images|assets).*)',
-  ],
-}
+  // Match all pathnames except for
+  // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
+  // - … the ones containing a dot (e.g. `favicon.ico`)
+  matcher: "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
+};
