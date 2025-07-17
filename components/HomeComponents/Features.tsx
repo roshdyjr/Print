@@ -6,37 +6,39 @@ import { Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { useTranslation } from '@/hooks/useTranslation'
 
 const Features = () => {
     const [activeIndex, setActiveIndex] = useState(0)
     const [swiperInstance, setSwiperInstance] = useState<any>(null)
+    const { t } = useTranslation()
 
     const features = [
         {
             id: 1,
-            title: "Upload files in seconds",
-            description: "Select from your phone.",
+            title: t('Features.feature1_title'),
+            description: t('Features.feature1_desc'),
             icon: "/file-upload.svg",
             image: "/feature1.svg"
         },
         {
             id: 2,
-            title: "Set your print options",
-            description: "Adjust settings to fit your needs.",
+            title: t('Features.feature2_title'),
+            description: t('Features.feature2_desc'),
             icon: "/settings.svg",
             image: "/feature2.svg"
         },
         {
             id: 3,
-            title: "Find nearby agents instantly",
-            description: "Compare and pick the best price.",
+            title: t('Features.feature3_title'),
+            description: t('Features.feature3_desc'),
             icon: "/store.svg",
             image: "/feature3.svg"
         },
         {
             id: 4,
-            title: "Choose Delivery or pickup",
-            description: "We'll bring it or you collect.",
+            title: t('Features.feature4_title'),
+            description: t('Features.feature4_desc'),
             icon: "/package.svg",
             image: "/feature4.svg"
         }
@@ -51,7 +53,7 @@ const Features = () => {
 
     return (
         <section className='general-container py-8 gap-[10px] w-full flex flex-col items-center justify-center lg:gap-[45px] lg:py-10 xlg:!py-20 overflow-x-hidden'>
-            <h6 className='text-[#7745A2] uppercase font-semibold text-sm'>features</h6>
+            <h6 className='text-[#7745A2] uppercase font-semibold text-sm'>{t('Features.section')}</h6>
             <div className='flex flex-col items-center gap-4 w-full lg:gap-20 xl:gap-[186px] lg:flex-row lg:justify-center'>
                 {/* Mobile/Tablet Swiper */}
                 <div className='w-full lg:hidden order-2'>
@@ -124,13 +126,13 @@ const Features = () => {
                                     ? 'bg-[#7745A2] scale-125'
                                     : 'border-[0.8px] border-[#A3A3A3] hover:bg-[#7745A220]'
                                     }`}
-                                aria-label={`Show feature ${index + 1}`}
+                                aria-label={`${t('Features.feature')} ${index + 1}`}
                             />
                         ))}
                     </div>
                 </div>
 
-                {/* Desktop Cards Column (unchanged) */}
+                {/* Desktop Cards Column */}
                 <div className='hidden lg:flex flex-col items-center gap-[21.07px] order-2 lg:order-1'>
                     {features.map((feature, index) => (
                         <div
@@ -159,7 +161,7 @@ const Features = () => {
                                     ? 'bg-[#7745A2] scale-125'
                                     : 'border-[0.8px] border-[#A3A3A3] hover:bg-[#7745A220]'
                                     }`}
-                                aria-label={`Show feature ${index + 1}`}
+                                aria-label={`${t('Features.feature')} ${index + 1}`}
                             />
                         ))}
                     </div>
@@ -169,7 +171,7 @@ const Features = () => {
                 <div className='self-center relative w-[357.22px] flex-center order-1 lg:order-2 lg:w-[545.37px]'>
                     <Image
                         src={features[activeIndex].image}
-                        alt={`feature-${activeIndex + 1}`}
+                        alt={features[activeIndex].title}
                         width={284.2}
                         height={591.76}
                         className="relative z-10 transition-opacity duration-500 w-[186.15px] h-[387.61px] lg:w-[284.2px] lg:h-[591.76px] scale-[130%] lg:scale-110 xl:scale-[130%]"
