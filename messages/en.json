@@ -10,6 +10,8 @@
     "features": "Features",
     "faqs": "FAQs",
     "contact": "Contact",
+    "download": "Download",
+    "serviceProvider": "Become a Service Provider",
     "join": "Join as a service provider",
     "lang": "ar"
   },
@@ -101,6 +103,30 @@
     "messagePlaceholder": "Type your message...",
     "sendButton": "Send",
     "arrowAlt": "Send arrow"
+  },
+  "ServiceProvider": {
+    "title": "DO YOU HAVE A PRINTER?",
+    "subtitle": "Join us today and become a service provider on Print.sa",
+    "description": "If You’re A Copy Center Or Print Provider, We’re Glad You Found Us! We Look Forward To Working Together To Offer Top-Quality Online Printing Services For Both Your Customers And Ours.",
+    "form": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Enter your full name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "phone": "Phone",
+      "phonePlaceholder": "Enter your phone number",
+      "service": "Service",
+      "servicePlaceholder": "Enter the service you provide",
+      "message": "Message",
+      "messagePlaceholder": "Enter your message",
+      "submit": "Submit"
+    },
+    "features": [
+      { "title": "Easy To Find New Customers" },
+      { "title": "Clarity Of Orders And Variety Of Options" },
+      { "title": "All Orders Are Prepaid" },
+      { "title": "Service Is Working 24/7" }
+    ]
   },
   "Footer": {
     "description1": "Get your documents printed, customized,",
