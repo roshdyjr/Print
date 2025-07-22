@@ -3,6 +3,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import React, { useState, useEffect, useRef } from 'react'
+import Link from 'next/link'
 
 // Type definitions
 type NavItem = {
@@ -114,7 +115,8 @@ const Navbar = () => {
         { id: "about", text: t("about") },
         { id: "features", text: t("features") },
         { id: "faqs", text: t("faqs") },
-        { id: "contact", text: t("contact") }
+        { id: "contact", text: t("contact") },
+        { id: "serviceProvider", text: t("serviceProvider") }
     ]
 
     return (

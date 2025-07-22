@@ -5,3 +5,13 @@ import { routing } from "./routing";
 // APIs that consider the routing configuration
 export const { Link, redirect, usePathname, useRouter, getPathname } =
   createNavigation(routing);
+
+export const locales = ["en", "ar"];
+export const pathnames = {
+  "/": "/",
+  "/privacypolicy": "/privacypolicy",
+  "/terms&conditions": "/terms&conditions",
+  "/serviceprovider": "/serviceprovider",
+};
+
+export const localePrefix = "always"; // Default

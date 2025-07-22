@@ -62,4 +62,21 @@
   @apply flex justify-center items-center;
 }
 
+/* في app/globals.css أو أي ملف CSS عام */
+.custom-swiper-pagination .swiper-pagination {
+  margin-top: 24px;         /* أنزل الـ dots تحت */
+  position: static !important; /* خليها في مكانها الطبيعي */
+  text-align: center;
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet {
+  background: #8d5fd3;      /* لون dots الأساسي */
+  opacity: 0.4;
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet-active {
+  background: #8d5fd3;      /* لون dot النشطة */
+  opacity: 1;
+}
+
 
