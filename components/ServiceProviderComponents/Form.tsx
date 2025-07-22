@@ -38,7 +38,9 @@ const Form = () => {
     const [isCountryOpen, setIsCountryOpen] = useState(false);
     const [isCityOpen, setIsCityOpen] = useState(false);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    ) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
@@ -50,14 +52,25 @@ const Form = () => {
     return (
         <div className="mx-auto mt-10 max-w-6xl">
             <div className="text-center mb-6">
-                <div className="text-xs text-purple-700 font-semibold mb-2">{t("applyNow")}</div>
-                <h2 className="text-xl md:text-3xl font-bold mb-2 px-[4px]">{t("title1")}<br />{t("title2")}</h2>
+                <div className="text-[14px] text-[#7745A2] font-semibold mb-2">
+                    {t("applyNow")}
+                </div>
+                <h2 className="text-xl md:text-[32px] font-bold mb-2 px-[4px]">
+                    {t("title1")}
+                    <br />
+                    {t("title2")}
+                </h2>
             </div>
-            <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+            <form
+                onSubmit={handleSubmit}
+                className="bg-white rounded-2xl shadow-lg p-8 md:p-12"
+            >
                 <div className="flex flex-wrap -mx-3">
                     {/* Name */}
                     <div className="w-full md:w-1/2 px-3 mb-6">
-                        <label className="block text-sm font-semibold mb-2">{t("name")}</label>
+                        <label className="block text-sm font-semibold mb-2">
+                            {t("name")}
+                        </label>
                         <input
                             type="text"
                             name="name"
@@ -70,7 +83,9 @@ const Form = () => {
                     </div>
                     {/* Contact Number */}
                     <div className="w-full md:w-1/2 px-3 mb-6">
-                        <label className="block text-sm font-semibold mb-2">{t("contact")}</label>
+                        <label className="block text-sm font-semibold mb-2">
+                            {t("contact")}
+                        </label>
                         <input
                             type="text"
                             name="contact"
@@ -83,7 +98,9 @@ const Form = () => {
                     </div>
                     {/* Email Address */}
                     <div className="w-full md:w-1/2 px-3 mb-6">
-                        <label className="block text-sm font-semibold mb-2">{t("email")}</label>
+                        <label className="block text-sm font-semibold mb-2">
+                            {t("email")}
+                        </label>
                         <input
                             type="email"
                             name="email"
@@ -96,7 +113,9 @@ const Form = () => {
                     </div>
                     {/* Commercial Name */}
                     <div className="w-full md:w-1/2 px-3 mb-6">
-                        <label className="block text-sm font-semibold mb-2">{t("commercial")}</label>
+                        <label className="block text-sm font-semibold mb-2">
+                            {t("commercial")}
+                        </label>
                         <input
                             type="text"
                             name="commercial"
@@ -109,7 +128,9 @@ const Form = () => {
                     </div>
                     {/* Country */}
                     <div className="w-full md:w-1/2 px-3 mb-6 relative">
-                        <label className="block text-sm font-semibold mb-2">{t("country")}</label>
+                        <label className="block text-sm font-semibold mb-2">
+                            {t("country")}
+                        </label>
                         <div className="relative">
                             <select
                                 name="country"
@@ -119,24 +140,60 @@ const Form = () => {
                                 onBlur={() => setIsCountryOpen(false)}
                                 className="w-full border-[#E5E7EB] border rounded-[6px] px-4 py-2 focus:outline-none focus:border-purple-600 appearance-none transition-shadow duration-200 focus:shadow-lg"
                                 required
-                                style={{ WebkitAppearance: 'none', MozAppearance: 'none', appearance: 'none' }}
+                                style={{
+                                    WebkitAppearance: "none",
+                                    MozAppearance: "none",
+                                    appearance: "none",
+                                }}
                             >
                                 <option value="">{t("countryPlaceholder")}</option>
-                                {countries.filter(c => c.value).map((c) => (
-                                    <option key={c.value} value={c.value}>{t(`country_${c.value}`)}</option>
-                                ))}
+                                {countries
+                                    .filter((c) => c.value)
+                                    .map((c) => (
+                                        <option key={c.value} value={c.value}>
+                                            {t(`country_${c.value}`)}
+                                        </option>
+                                    ))}
                             </select>
-                            <span className={`pointer-events-none absolute ${locale === 'ar' ? 'left-5' : 'right-5'} top-1/2 -translate-y-1/2`}>
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transition: 'transform 0.2s', transform: isCountryOpen ? 'rotate(180deg)' : 'none' }}>
-                                    <circle cx="11" cy="11" r="9.5" stroke="#1A2134" strokeWidth="1.5" fill="none" />
-                                    <path d="M7.5 10l3.5 3 3.5-3" stroke="#1A2134" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            <span
+                                className={`pointer-events-none absolute ${locale === "ar" ? "left-5" : "right-5"
+                                    } top-1/2 -translate-y-1/2`}
+                            >
+                                <svg
+                                    width="22"
+                                    height="22"
+                                    viewBox="0 0 22 22"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    style={{
+                                        transition: "transform 0.2s",
+                                        transform: isCountryOpen ? "rotate(180deg)" : "none",
+                                    }}
+                                >
+                                    <circle
+                                        cx="11"
+                                        cy="11"
+                                        r="9.5"
+                                        stroke="#1A2134"
+                                        strokeWidth="1.5"
+                                        fill="none"
+                                    />
+                                    <path
+                                        d="M7.5 10l3.5 3 3.5-3"
+                                        stroke="#1A2134"
+                                        strokeWidth="1.5"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
                                 </svg>
                             </span>
                         </div>
                     </div>
                     {/* City */}
                     <div className="w-full md:w-1/2 px-3 mb-6 relative">
-                        <label className="block text-sm font-semibold mb-2">{t("city")}</label>
+                        <label className="block text-sm font-semibold mb-2">
+                            {t("city")}
+                        </label>
                         <div className="relative">
                             <select
                                 name="city"
@@ -146,61 +203,114 @@ const Form = () => {
                                 onBlur={() => setIsCityOpen(false)}
                                 className="w-full border-[#E5E7EB] border rounded-[6px] px-4 py-2 focus:outline-none focus:border-purple-600 appearance-none transition-shadow duration-200 focus:shadow-lg"
                                 required
-                                style={{ WebkitAppearance: 'none', MozAppearance: 'none', appearance: 'none' }}
+                                style={{
+                                    WebkitAppearance: "none",
+                                    MozAppearance: "none",
+                                    appearance: "none",
+                                }}
                             >
                                 <option value="">{t("cityPlaceholder")}</option>
-                                {cities.filter(c => c.value).map((c) => (
-                                    <option key={c.value} value={c.value}>{t(`city_${c.value}`)}</option>
-                                ))}
+                                {cities
+                                    .filter((c) => c.value)
+                                    .map((c) => (
+                                        <option key={c.value} value={c.value}>
+                                            {t(`city_${c.value}`)}
+                                        </option>
+                                    ))}
                             </select>
-                            <span className={`pointer-events-none absolute ${locale === 'ar' ? 'left-5' : 'right-5'} top-1/2 -translate-y-1/2`}>
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transition: 'transform 0.2s', transform: isCityOpen ? 'rotate(180deg)' : 'none' }}>
-                                    <circle cx="11" cy="11" r="9.5" stroke="#1A2134" strokeWidth="1.5" fill="none" />
-                                    <path d="M7.5 10l3.5 3 3.5-3" stroke="#1A2134" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            <span
+                                className={`pointer-events-none absolute ${locale === "ar" ? "left-5" : "right-5"
+                                    } top-1/2 -translate-y-1/2`}
+                            >
+                                <svg
+                                    width="22"
+                                    height="22"
+                                    viewBox="0 0 22 22"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    style={{
+                                        transition: "transform 0.2s",
+                                        transform: isCityOpen ? "rotate(180deg)" : "none",
+                                    }}
+                                >
+                                    <circle
+                                        cx="11"
+                                        cy="11"
+                                        r="9.5"
+                                        stroke="#1A2134"
+                                        strokeWidth="1.5"
+                                        fill="none"
+                                    />
+                                    <path
+                                        d="M7.5 10l3.5 3 3.5-3"
+                                        stroke="#1A2134"
+                                        strokeWidth="1.5"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
                                 </svg>
                             </span>
                         </div>
                     </div>
                     {/* Password */}
                     <div className="w-full md:w-1/2 px-3 mb-6 relative">
-                        <label className="block text-sm font-semibold mb-2">{t("password")}</label>
+                        <label className="block text-sm font-semibold mb-2">
+                            {t("password")}
+                        </label>
                         <input
                             type={showPassword ? "text" : "password"}
                             name="password"
-                            placeholder={t("passwordPlaceholder")}
+                            placeholder={
+                                formData.password === "" && !showPassword
+                                    ? "******"
+                                    : showPassword
+                                        ? t("passwordPlaceholder")
+                                        : ""
+                            }
                             value={formData.password}
                             onChange={handleChange}
-                            className="w-full border-[#E5E7EB] border rounded-[6px] px-4 py-2 focus:outline-none focus:border-purple-600 pr-10"
+                            className="w-full border-[#E5E7EB] border rounded-[6px] px-4 py-2 focus:outline-none focus:border-purple-600 pr-12 pl-4"
                             required
                         />
                         <button
                             type="button"
-                            className="absolute right-5 top-10 text-gray-400 focus:outline-none"
+                            className={`absolute ${locale === "ar" ? "left-6" : "right-6"
+                                } top-[70%] -translate-y-1/2 text-black text-2xl focus:outline-none`}
                             onClick={() => setShowPassword((v) => !v)}
                             tabIndex={-1}
                         >
-                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                            {showPassword ? <FaEye /> : <FaEyeSlash />}
                         </button>
                     </div>
+
                     {/* Confirm Password */}
                     <div className="w-full md:w-1/2 px-3 mb-6 relative">
-                        <label className="block text-sm font-semibold mb-2">{t("confirmPassword")}</label>
+                        <label className="block text-sm font-semibold mb-2">
+                            {t("confirmPassword")}
+                        </label>
                         <input
                             type={showConfirmPassword ? "text" : "password"}
                             name="confirmPassword"
-                            placeholder={t("confirmPasswordPlaceholder")}
+                            placeholder={
+                                formData.confirmPassword === "" && !showConfirmPassword
+                                    ? "******"
+                                    : showConfirmPassword
+                                        ? t("confirmPasswordPlaceholder")
+                                        : ""
+                            }
                             value={formData.confirmPassword}
                             onChange={handleChange}
-                            className="w-full border-[#E5E7EB] border rounded-[6px] px-4 py-2 focus:outline-none focus:border-purple-600 pr-10"
+                            className="w-full border-[#E5E7EB] border rounded-[6px] px-4 py-2 focus:outline-none focus:border-purple-600 pr-12 pl-4"
                             required
                         />
                         <button
                             type="button"
-                            className="absolute right-5 top-10 text-gray-400 focus:outline-none"
+                            className={`absolute ${locale === "ar" ? "left-6" : "right-6"
+                                } top-[70%] -translate-y-1/2 text-black text-2xl focus:outline-none`}
                             onClick={() => setShowConfirmPassword((v) => !v)}
                             tabIndex={-1}
                         >
-                            {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                            {showConfirmPassword ? <FaEye /> : <FaEyeSlash />}
                         </button>
                     </div>
                 </div>
@@ -210,11 +320,12 @@ const Form = () => {
                         className="flex items-center gap-2 rounded-full bg-[#7745A2] px-8 py-2 text-base font-semibold text-white shadow-md hover:bg-purple-800 transition-all duration-200"
                     >
                         {t("submit")}
-                        <span className="inline-block">
-                        </span>
+                        <span className="inline-block"></span>
                     </button>
-                    <IoSend className="  text-2xl" />
-
+                    <IoSend
+                        className={`text-2xl ${locale === "ar" ? "rtl-flip" : ""}`}
+                        style={locale === "ar" ? { transform: "scaleX(-1)" } : {}}
+                    />
                 </div>
             </form>
         </div>

@@ -62,6 +62,8 @@
   @apply flex justify-center items-center;
 }
 
+
+
 .custom-swiper-pagination .swiper-pagination {
   margin-top: 24px;
   position: static !important;

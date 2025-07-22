@@ -115,8 +115,7 @@ const Navbar = () => {
         { id: "about", text: t("about") },
         { id: "features", text: t("features") },
         { id: "faqs", text: t("faqs") },
-        { id: "contact", text: t("contact") },
-        { id: "serviceProvider", text: t("serviceProvider") }
+        { id: "contact", text: t("contact") }
     ]
 
     return (
