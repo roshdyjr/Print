@@ -17,25 +17,27 @@ const ServiceProvider = () => {
                 <div className="-mx-4 flex flex-wrap">
                     <div className="w-full px-4 pt-16">
                         <div className="mx-auto max-w-6xl text-center px-2">
-                            <h3 className="mb-2 text-xl font-bold text-[#8d5fd3] uppercase tracking-wide">{t("title")}</h3>
-                            <h2 className="mb-2 text-2xl font-extrabold text-dark sm:text-4xl">
+                            <h3 className="mb-2 text-[36px] font-semibold text-[#7745A2] uppercase tracking-wide">{t("title")}</h3>
+                            <h2 className="mb-2 text-[40px] font-[600] text-[#212121] sm:text-[44]">
                                 {t("subtitle").split("Print.sa")[0]}
-                                <span className="text-[#8d5fd3]">Print.sa</span>
+                                <span className="text-[#7745A2]">Print.sa</span>
                                 {t("subtitle").split("Print.sa")[1] || ""}
                             </h2>
-                            <p className="mb-8 text-base text-[#6c648b] font-medium">
+                            <p className="mb-8 text-base text-[#707070] font-[400]">
                                 {t("description")}
                             </p>
                         </div>
                         {/* Features Section */}
                         {/* Swiper for mobile */}
-                        <div className="mb-16 block sm:hidden">
+                        <div className="mb-16 block sm:hidden px-2">
                             <Swiper
                                 spaceBetween={16}
-                                slidesPerView={1}
+                                slidesPerView={1.15}
+                                centeredSlides={true}
                                 pagination={{ clickable: true, el: undefined }}
                                 modules={[Pagination]}
                                 className="custom-swiper-pagination"
+                                style={{ paddingRight: 8 }}
                             >
                                 {t.raw("features").map((feature: { title: string }, idx: number) => {
                                     const icons = [
@@ -62,7 +64,7 @@ const ServiceProvider = () => {
                             </Swiper>
                         </div>
                         {/* Grid for larger screens */}
-                        <div className="mb-16 hidden sm:grid grid-cols-2 md:grid-cols-4 gap-6 mx-auto max-w-6xl">
+                        <div className="mb-16 hidden sm:grid grid-cols-2 md:grid-cols-4 gap-6 mx-auto max-w-6xl px-6">
                             {t.raw("features").map((feature: { title: string }, idx: number) => {
                                 const icons = [
                                     "/service_provider/Customers.svg",

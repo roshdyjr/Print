@@ -116,8 +116,7 @@ const Navbar = () => {
         { id: "features", text: t("features") },
         { id: "faqs", text: t("faqs") },
         { id: "contact", text: t("contact") },
-        { id: "serviceProvider", text: t("serviceProvider") }
-    ]
+     ]
 
     return (
         <header
